@@ -2,6 +2,7 @@ local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/daw
 local win = DiscordLib:Window("sno hax / scriptblox.com/u/hiix")
 local serv = win:Server("sno hax 1.0", "")
 local main = serv:Channel("Main")
+local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
 local farm = serv:Channel("Farm")
 local troll = serv:Channel("troll")
@@ -53,6 +54,10 @@ end)
 
 lp:Button("speed hax",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(0.8,0.8,0.8)
+end)
+
+lp:Button("unspeed hax",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2.1,2.1,2.1)
 end)
 
 farm:Button("farm 4b / 8b per few sec + lvl 40",function()
@@ -233,3 +238,22 @@ lp:Button("very bad anti-snowball (it sucks)",function()
         end
         end    
 end)
+
+ex:Button("expand head [legit-looking]",function()
+for i,v in pairs(workspace:GetDescendants()) do
+if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
+    v.Transparency = 0.5
+    v.Size = Vector3.new(4.5,4.5,4.5)
+end
+end
+end)
+
+ex:Button("expand head [blatant]",function()
+    for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
+        v.Transparency = 0.5
+        v.Size = Vector3.new(15,15,15)
+    end
+end
+end)
+
