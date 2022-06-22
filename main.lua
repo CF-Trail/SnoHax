@@ -1,6 +1,8 @@
+_G.SpamSounds = true
+_G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window("sno hax / scriptblox.com/u/hiix")
-local serv = win:Server("sno hax 1.1a", "")
+local serv = win:Server("sno hax 1.2?", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
@@ -181,13 +183,18 @@ troll:Button("play all sounds",function()
     end        
 end)
 troll:Button("loop [repeat] play all sounds",function()
-    while wait() do
+    while _G.SpamSounds do
+    wait()
+    if not _G.SpamSounds then break end
     for i,v in pairs(workspace:GetDescendants()) do
         if v:IsA("Sound") then
         v:Play()
         end
     end       
 end
+end)
+troll:Button("unloop play all sounds",function()
+_G.SpamSounds = false
 end)
 troll:Button("stop all sounds",function()
     for i,v in pairs(workspace:GetDescendants()) do
@@ -197,15 +204,19 @@ troll:Button("stop all sounds",function()
     end       
 end)
 troll:Button("loop [repeat] stop all sounds",function()
-    while wait() do
-    for i,v in pairs(workspace:GetDescendants()) do
-        if v:IsA("Sound") then
-        v:Stop()
-        end
-    end       
-end
+    while _G.US do
+        wait()
+        if not _G.US then break end
+        for i,v in pairs(workspace:GetDescendants()) do
+            if v:IsA("Sound") then
+            v:Stop()
+            end
+        end       
+    end
 end)
-
+troll:Button("unloop stop all sounds",function()
+_G.US = false
+end)
 main:Button("drain money (leave to stop)",function()
 while wait() do 
     local args = {
@@ -244,6 +255,7 @@ for i,v in pairs(workspace:GetDescendants()) do
 if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
     v.Transparency = 0.5
     v.Size = Vector3.new(4.5,4.5,4.5)
+    v.CanCollide = false
 end
 end
 end)
@@ -253,6 +265,7 @@ ex:Button("expand head [blatant]",function()
     if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
         v.Transparency = 0.5
         v.Size = Vector3.new(15,15,15)
+        v.CanCollide = false
     end
 end
 end)
