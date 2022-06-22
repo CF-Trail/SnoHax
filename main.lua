@@ -1,6 +1,6 @@
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window("sno hax / scriptblox.com/u/hiix")
-local serv = win:Server("sno hax 1.0", "")
+local serv = win:Server("sno hax 1.1a", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
