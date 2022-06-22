@@ -183,6 +183,7 @@ troll:Button("play all sounds",function()
     end        
 end)
 troll:Button("loop [repeat] play all sounds",function()
+    _G.SpamSounds = true
     while _G.SpamSounds do
     wait()
     if not _G.SpamSounds then break end
@@ -204,6 +205,7 @@ troll:Button("stop all sounds",function()
     end       
 end)
 troll:Button("loop [repeat] stop all sounds",function()
+    _G.US = true
     while _G.US do
         wait()
         if not _G.US then break end
