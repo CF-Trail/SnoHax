@@ -65,8 +65,9 @@ end)
 lp:Button("unspeed hax",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2.1,2.1,2.1)
 end)
-
 farm:Button("farm 4b / 8b per few sec + lvl 40",function()
+    p = Instance.new("Part",workspace)
+    p.Name = "snowball"
     while wait(2) do
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
@@ -103,9 +104,9 @@ end
 end)
 
 farm:Button("farm l's",function()
+    p = Instance.new("Part",workspace)
+    p.Name = "snowball"
     while wait(1) do
-        p = Instance.new("Part",workspace)
-        p.Name = "snowball"
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,1000000000,0)
         wait(1)
         for i,v in pairs(game.Players:GetDescendants()) do
@@ -138,7 +139,7 @@ farm:Button("farm l's",function()
         end
 end)
 
-lp:Button("1 time hit urself",function()
+lp:Button("hit urself",function()
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     wait(1)
