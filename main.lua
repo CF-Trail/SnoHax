@@ -6,12 +6,13 @@ _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.21", "")
+local serv = win:Server("sno hax 1.3", "")
 local main = serv:Channel("Main")
-local ex = serv:Channel("expander")
+local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
 local farm = serv:Channel("Farm")
-local troll = serv:Channel("troll")
+local troll = serv:Channel("Troll")
+local gamep = serv:Channel("Game")
 
 main:Button("Anti-AFK",function()
     for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
@@ -133,7 +134,7 @@ farm:Button("farm l's",function()
                 ["Update"] = function()end --[[Update]],
                 ["startpos"] = Vector3.new(160.68650817871094, 27.411270141601562, -247.69456481933594),
                 ["hitdat"] = {
-                    [1] = game:GetService("Players")[plrname].Character.Head,
+                    [1] = game:GetService("Players")[plrname].Character:FindFirstChildWhichIsA("BasePart"),
                     [2] = Vector3.new(121.31280517578125, 47.99488067626953, -239.3021697998047),
                     [3] = Vector3.new(0.9414222240447998, -0.3303876519203186, 0.06758713722229004),
                     [4] = Enum.Material.Sand
@@ -166,7 +167,7 @@ lp:Button("hit urself",function()
             ["Update"] = function()end --[[Update]],
             ["startpos"] = Vector3.new(160.68650817871094, 27.411270141601562, -247.69456481933594),
             ["hitdat"] = {
-                [1] = game:GetService("Players")[plrname].Character.Torso,
+                [1] = game:GetService("Players")[plrname].Character:FindFirstChildWhichIsA("BasePart"),
                 [2] = Vector3.new(121.31280517578125, 47.99488067626953, -239.3021697998047),
                 [3] = Vector3.new(0.9414222240447998, -0.3303876519203186, 0.06758713722229004),
                 [4] = Enum.Material.Sand
@@ -304,3 +305,19 @@ end
 end
 end)
 
+gamep:Slider("change gravity",0,200,45,function(grav)
+    workspace.Gravity = tonumber(grav)
+end)
+
+gamep:Seperator()
+
+gamep:Button("beautify ur game",function()
+    game:GetService("Lighting").ClockTime = 0
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+        if v:IsA("BasePart") then
+        n = Instance.new("PointLight",v)
+        n.Brightness = 0.5
+        n.Range = 8
+        end
+    end
+end)
