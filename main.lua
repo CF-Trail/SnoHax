@@ -6,7 +6,7 @@ _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.31", "")
+local serv = win:Server("sno hax 1.3.2", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -249,12 +249,21 @@ end
 end)
 lp:Button("very bad anti-snowball (it sucks)",function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-        if v:IsA("BasePart") or v:IsA("MeshPart") or v:FindFirstChildWhichIsA("BasePart") then
+        if v:IsA("BasePart") and v.Name ~= "armR" then
         v.Touched:Connect(function(uhh)
         if uhh.Name == "snowball" then
-        workspace.Gravity = 2500
-        wait(2)
-        workspace.Gravity = 45
+            local BeenASecond, V3 = false, Vector3.new(0, 0, 0)
+            delay(0.2, function()
+                BeenASecond = true
+            end)
+            while not BeenASecond do
+                for _, v in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v.IsA(v, "BasePart") then
+                        v.Velocity, v.RotVelocity = V3, V3
+                    end
+                end
+                wait()
+            end
         end
         end)
         end
@@ -314,7 +323,7 @@ gamep:Button("beautify ur game",function()
     end
 end)
 
-clog:Label("1.3.1")
+clog:Label("1.3.2")
 clog:Seperator()
-clog:Label("~updated anti-snowball")
+clog:Label("~updated anti-snowball (again)")
 clog:Seperator()
