@@ -7,7 +7,7 @@ _G.US = true
 _G.lmao = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.3.2", "")
+local serv = win:Server("sno hax 1.4hotfix", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -272,9 +272,9 @@ lp:Button("anti-snowball",function()
         end    
 end)
 
-lp:Button("un anti-snowball")
+lp:Button("un anti-snowball",function()
 _G.lmao = false
-end
+end)
 
 ex:Button("expand head [very legit]",function()
     while wait() do
