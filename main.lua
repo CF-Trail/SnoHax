@@ -4,6 +4,7 @@ wins = win[math.random(1,#win)]
 
 _G.SpamSounds = true
 _G.US = true
+_G.lmao = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
 local serv = win:Server("sno hax 1.3.2", "")
@@ -251,7 +252,7 @@ lp:Button("anti-snowball",function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
         if v:IsA("BasePart") and v.Name ~= "armR" then
         v.Touched:Connect(function(uhh)
-        if uhh.Name == "snowball" then
+        if uhh.Name == "snowball" and _G.lmao = true then
             local BeenASecond, V3 = false, Vector3.new(0, 0, 0)
             delay(0.2, function()
                 BeenASecond = true
@@ -269,6 +270,10 @@ lp:Button("anti-snowball",function()
         end
         end    
 end)
+
+lp:Button("un anti-snowball")
+_G.lmao = false
+end
 
 ex:Button("expand head [very legit]",function()
     while wait() do
@@ -317,13 +322,15 @@ gamep:Button("beautify ur game",function()
     for i,v in pairs(game.Workspace:GetDescendants()) do
         if v:IsA("BasePart") then
         n = Instance.new("PointLight",v)
-        n.Brightness = 0.5
-        n.Range = 8
+        n.Brightness = 0.7
+        n.Range = 9
         end
     end
 end)
 
-clog:Label("1.3.2")
+clog:Label("1.4alpha")
 clog:Seperator()
-clog:Label("~updated anti-snowball (again)")
+clog:Label("+un anti-snowball")
+clog:Label("~changed anti-snowball")
+clog:Label("better game beautifier")
 clog:Seperator()
