@@ -107,7 +107,6 @@ farm:Button("farm l's",function()
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     while wait(1) do
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,1000000000,0)
         wait(1)
         for i,v in pairs(game.Players:GetDescendants()) do
         if v:IsA("Player") and v.Name == game.Players.LocalPlayer.Name then
