@@ -1,4 +1,4 @@
-win = {"lol","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main"}
+win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main"}
 wins = win[math.random(1,#win)]
 
 
@@ -6,7 +6,7 @@ _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.2", "")
+local serv = win:Server("sno hax 1.2B", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
@@ -255,6 +255,18 @@ lp:Button("very bad anti-snowball (it sucks)",function()
         end
         end    
 end)
+
+ex:Button("expand head [very legit]",function()
+    for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
+        v.Transparency = 0.5
+        v.Size = Vector3.new(3.5,3.5,3.5)
+        v.CanCollide = false
+    end
+end
+end)
+
+
 
 ex:Button("expand head [legit-looking]",function()
 for i,v in pairs(workspace:GetDescendants()) do
