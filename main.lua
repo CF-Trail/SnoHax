@@ -247,7 +247,7 @@ while wait() do
     game:GetService("ReplicatedStorage").Remotes.Products.BuyLootbox:InvokeServer(unpack(args))    
 end
 end)
-lp:Button("very bad anti-snowball (it sucks)",function()
+lp:Button("anti-snowball",function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
         if v:IsA("BasePart") and v.Name ~= "armR" then
         v.Touched:Connect(function(uhh)
