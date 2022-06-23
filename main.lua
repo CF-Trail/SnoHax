@@ -1,8 +1,12 @@
+win = {"lol","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main"}
+wins = win[math.random(1,#win)]
+
+
 _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
-local win = DiscordLib:Window("sno hax / scriptblox.com/u/hiix")
-local serv = win:Server("sno hax 1.1B", "")
+local win = DiscordLib:Window(tostring(wins))
+local serv = win:Server("sno hax 1.2", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
