@@ -6,12 +6,18 @@ _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.2C", "")
+local serv = win:Server("sno hax 1.21", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("expander")
 local lp = serv:Channel("LocalPlayer")
 local farm = serv:Channel("Farm")
 local troll = serv:Channel("troll")
+
+main:Button("Anti-AFK",function()
+    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+        v:Disable()
+    end
+end)
 
 main:Button("take snow from everywhere",function()
 
@@ -66,6 +72,9 @@ lp:Button("unspeed hax",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2.1,2.1,2.1)
 end)
 farm:Button("farm 4b / 8b per few sec + lvl 40",function()
+    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+        v:Disable()
+    end
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     while wait(2) do
@@ -86,7 +95,7 @@ farm:Button("farm 4b / 8b per few sec + lvl 40",function()
             ["Update"] = function()end --[[Update]],
             ["startpos"] = Vector3.new(160.68650817871094, 27.411270141601562, -247.69456481933594),
             ["hitdat"] = {
-                [1] = game:GetService("Players")[plrname].Character.Torso,
+                [1] = game:GetService("Players")[plrname].Character.Head,
                 [2] = Vector3.new(121.31280517578125, 47.99488067626953, -239.3021697998047),
                 [3] = Vector3.new(0.9414222240447998, -0.3303876519203186, 0.06758713722229004),
                 [4] = Enum.Material.Sand
@@ -104,6 +113,9 @@ end
 end)
 
 farm:Button("farm l's",function()
+    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+        v:Disable()
+    end
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     while wait(1) do
@@ -121,7 +133,7 @@ farm:Button("farm l's",function()
                 ["Update"] = function()end --[[Update]],
                 ["startpos"] = Vector3.new(160.68650817871094, 27.411270141601562, -247.69456481933594),
                 ["hitdat"] = {
-                    [1] = game:GetService("Players")[plrname].Character.Torso,
+                    [1] = game:GetService("Players")[plrname].Character.Head,
                     [2] = Vector3.new(121.31280517578125, 47.99488067626953, -239.3021697998047),
                     [3] = Vector3.new(0.9414222240447998, -0.3303876519203186, 0.06758713722229004),
                     [4] = Enum.Material.Sand
