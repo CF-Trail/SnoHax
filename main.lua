@@ -253,7 +253,7 @@ lp:Button("anti-snowball",function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
         if v:IsA("BasePart") and v.Name ~= "armR" then
         v.Touched:Connect(function(uhh)
-        if uhh.Name == "snowball" and _G.lmao = true then
+        if uhh.Name == "snowball" and _G.lmao == true then
             local BeenASecond, V3 = false, Vector3.new(0, 0, 0)
             delay(0.2, function()
                 BeenASecond = true
