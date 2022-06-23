@@ -249,6 +249,7 @@ while wait() do
 end
 end)
 lp:Button("anti-snowball",function()
+    _G.lmao = true
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
         if v:IsA("BasePart") and v.Name ~= "armR" then
         v.Touched:Connect(function(uhh)
