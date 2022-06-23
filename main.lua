@@ -1,4 +1,4 @@
-win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main"}
+win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main","sno sno sno sno sno","sno bro","sno sis","hiiiiiiiiiiiiiiiiiii"}
 wins = win[math.random(1,#win)]
 
 
@@ -6,13 +6,14 @@ _G.SpamSounds = true
 _G.US = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.3", "")
+local serv = win:Server("sno hax 1.31", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
 local farm = serv:Channel("Farm")
 local troll = serv:Channel("Troll")
 local gamep = serv:Channel("Game")
+local clog = serv:Channel("Changelog")
 
 main:Button("Anti-AFK",function()
     for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
@@ -246,23 +247,14 @@ while wait() do
     game:GetService("ReplicatedStorage").Remotes.Products.BuyLootbox:InvokeServer(unpack(args))    
 end
 end)
-
 lp:Button("very bad anti-snowball (it sucks)",function()
     for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
         if v:IsA("BasePart") or v:IsA("MeshPart") or v:FindFirstChildWhichIsA("BasePart") then
         v.Touched:Connect(function(uhh)
         if uhh.Name == "snowball" then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-        
-        position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-        wait(4)
-        
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(position)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-        
-        wait(1)
-        
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(position)
+        workspace.Gravity = 2500
+        wait(2)
+        workspace.Gravity = 45
         end
         end)
         end
@@ -321,3 +313,8 @@ gamep:Button("beautify ur game",function()
         end
     end
 end)
+
+clog:Label("1.3.1")
+clog:Seperator()
+clog:Label("~updated anti-snowball")
+clog:Seperator()
