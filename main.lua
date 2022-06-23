@@ -323,8 +323,8 @@ gamep:Button("beautify ur game",function()
     for i,v in pairs(game.Workspace:GetDescendants()) do
         if v:IsA("BasePart") then
         n = Instance.new("PointLight",v)
-        n.Brightness = 0.7
-        n.Range = 9
+        n.Brightness = 0.6
+        n.Range = 8
         end
     end
 end)
