@@ -268,8 +268,6 @@ end
 end
 end)
 
-
-
 ex:Button("expand head [legit-looking]",function()
 while wait() do
 for i,v in pairs(workspace:GetDescendants()) do
@@ -287,7 +285,7 @@ ex:Button("expand head [blatant]",function()
     for i,v in pairs(workspace:GetDescendants()) do
     if v:IsA("BasePart") and v.Name == "Head" and v.Parent:IsA("Model") and v.Parent.Name ~= game.Players.LocalPlayer.Name then
         v.Transparency = 0.5
-        v.Size = Vector3.new(15,15,15)
+        v.Size = Vector3.new(8,8,8)
         v.CanCollide = false
     end
 end
