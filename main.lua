@@ -7,7 +7,7 @@ _G.US = true
 _G.lmao = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.4hotfix", "")
+local serv = win:Server("sno hax 1.4alpha", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -329,9 +329,14 @@ gamep:Button("beautify ur game",function()
     end
 end)
 
+gamep:Button("remove fog",function()
+	game:GetService("Lighting").FogEnd = 100000
+end)
+
 clog:Label("1.4alpha")
 clog:Seperator()
 clog:Label("+un anti-snowball")
 clog:Label("~changed anti-snowball")
 clog:Label("better game beautifier")
+clog:Label("+remove fog")
 clog:Seperator()
