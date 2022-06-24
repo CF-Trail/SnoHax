@@ -75,9 +75,6 @@ lp:Button("unspeed hax",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2.1,2.1,2.1)
 end)
 farm:Button("farm 4b / 8b per few sec + lvl 40",function()
-    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-        v:Disable()
-    end
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     while wait(2) do
@@ -116,9 +113,6 @@ end
 end)
 
 farm:Button("farm l's",function()
-    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-        v:Disable()
-    end
     p = Instance.new("Part",workspace)
     p.Name = "snowball"
     while wait(1) do
