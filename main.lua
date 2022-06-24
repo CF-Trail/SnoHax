@@ -8,7 +8,7 @@ _G.lmao = true
 _G.Annoy = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.5", "")
+local serv = win:Server("sno hax 1.5.1", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -376,6 +376,16 @@ gamep:Button("beautify ur game",function()
     end
 end)
 
+tp:Button("Snow Scoob",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9.66229725, 31.6212063, -324.965546, 0.507394612, 7.54966183e-16, -0.861713827, -4.09284255e-16, 1, 6.35126797e-16, 0.861713827, 3.04259529e-17, 0.507394612)
+end)
+
+tp:Button("Gold Scoob",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(111.732109, 4976.10156, -157.587601, 0.0836840868, -4.02065695e-18, 0.996492326, -4.42301315e-17, 1, 7.74919672e-18, -0.996492326, -4.4723472e-17, 0.0836840868)
+end)
+
+tp:Seperator()
+
 gamep:Button("remove fog",function()
 	game:GetService("Lighting").FogEnd = 100000
 end)
@@ -428,6 +438,10 @@ tp:Button("Grave",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129.454346, 12.5, -273.150146, 0.143596217, 5.00841812e-09, -0.989636362, -1.59446262e-10, 1, 5.03773157e-09, 0.989636362, -5.6560534e-10, 0.143596)
 end)
 
+clog:Label("1.5.1")
+clog:Seperator()
+clog:Label("Badge Teleporter")
+clog:Seperator()
 clog:Label("1.5")
 clog:Seperator()
 clog:Label("~bug fixes")
