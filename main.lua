@@ -1,4 +1,4 @@
-win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main","sno sno sno sno sno","sno bro","sno sis","hiiiiiiiiiiiiiiiiiii"}
+win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main","sno sno sno sno sno","sno bro","sno sis","hiiiiiiiiiiiiiiiiiii","yad ons"}
 wins = win[math.random(1,#win)]
 
 
@@ -7,12 +7,13 @@ _G.US = true
 _G.lmao = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.4alpha", "")
+local serv = win:Server("sno hax 1.5?", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
 local farm = serv:Channel("Farm")
 local troll = serv:Channel("Troll")
+local tp = serv:Channel("Teleports")
 local gamep = serv:Channel("Game")
 local clog = serv:Channel("Changelog")
 
@@ -58,9 +59,9 @@ end)
 main:Button("get all hats",function()
     for i,v in pairs(game.ReplicatedStorage.models.hats:GetDescendants()) do
         if v:IsA("StringValue") and v.Name == "id" then
-        xid = v.Value
+        wait()
         local args = {
-            [1] = xid
+            [1] = v.Value
         }
         game:GetService("ReplicatedStorage").Remotes.Data.bungus:FireServer(unpack(args))
         end
@@ -74,7 +75,7 @@ end)
 lp:Button("unspeed hax",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2.1,2.1,2.1)
 end)
-farm:Button("farm 4b / 8b per few sec + lvl 40",function()
+farm:Button("farm 4b / 8b per few sec + get 40 rank",function()
     if getconnections then
     for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
         v:Disable()
@@ -337,10 +338,57 @@ gamep:Button("remove fog",function()
 	game:GetService("Lighting").FogEnd = 100000
 end)
 
-clog:Label("1.4alpha")
+tp:Button("Spawn",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.03902459, 4.5, -3.21702695, -0.907164931, -2.45367512e-17, -0.420775205, 8.12477146e-18, 1, -7.58297048e-17, 0.420775205, -7.22087514e-17, -0.9071649)
+end)
+
+tp:Button("Castle",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(358.669861, 52.5, -166.420197, 0.141238213, -1.07628212e-10, 0.989975631, -4.46174729e-11, 1, 1.1508354e-10, -0.989975631, -6.04244016e-11, 0.141238)
+end)
+
+tp:Button("Mountain",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(244.01358, 30.0698872, -214.819855, -0.0125390803, -5.26687634e-12, 0.999921381, 2.5928245e-13, 1, 5.27054182e-12, -0.999921381, 3.253498e-13, -0.01253908)
+end)
+
+tp:Button("FFA Mountain",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-133.708221, 70.5633926, -163.615097, -0.723906875, 5.42660274e-12, -0.689897716, -2.70404064e-11, 1, 3.62391957e-11, 0.689897716, 4.48889155e-11, -0.7239)
+end)
+
+tp:Button("Igloo",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(373.394897, 4.5, 9.37975502, 0.0296952892, -2.01647778e-11, 0.999558985, 2.83234842e-11, 1, 1.93322303e-11, -0.999558985, 2.77369169e-11, 0.02969)
+end)
+
+tp:Button("Chair",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257.525177, 3.92882156, 149.204178, 0.990109265, -7.83394531e-19, -0.140298367, 9.34186765e-19, 1, 1.00893918e-18, 0.140298367, -1.13002488e-18, 0.990109)
+end)
+
+tp:Button("Tower",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(243.50351, 105.5, -490.723328, -0.982477248, -3.16791121e-10, -0.186382696, -4.0294687e-10, 1, 4.24368707e-10, 0.186382696, 4.92034913e-10, -0.982477)
+end)
+
+tp:Button("Top",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(290.256317, 137.136261, 257.439636, 0.992756307, 4.79831691e-17, 0.120145202, -6.17687726e-17, 1, 1.11017108e-16, -0.120145202, -1.17634162e-16, 0.99275)
+end)
+
+tp:Button("Nimblz place",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-310.033813, -19.96875, -123.241585, 0.91987747, -1.45546039e-07, 0.392205864, -9.24321171e-08, 1, 5.87885779e-07, -0.392205864, -5.7703528e-07, 0.91987747)
+end)
+
+tp:Button("Green Box",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(57.6420326, 1.52587891e-05, 299.139313, -0.999973953, 1.76175589e-13, -0.00721407728, 1.79845003e-13, 1, -5.07998428e-13, 0.00721407728, -5.09282612e-13, -0.99997)
+end)
+
+tp:Button("Cave",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-115.53656, 109.432648, -293.941101, -0.0591185056, -2.26436225e-09, -0.998250961, -5.154779e-08, 1, 7.84438181e-10, 0.998250961, 5.15040064e-08, -0.0591185056)
+end)
+
+tp:Button("Grave",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129.454346, 12.5, -273.150146, 0.143596217, 5.00841812e-09, -0.989636362, -1.59446262e-10, 1, 5.03773157e-09, 0.989636362, -5.6560534e-10, 0.143596)
+end)
+
+clog:Label("1.5?")
 clog:Seperator()
-clog:Label("+un anti-snowball")
-clog:Label("~changed anti-snowball")
-clog:Label("better game beautifier")
-clog:Label("+remove fog")
+clog:Label("~bug fixes")
+clog:Label("~optimization")
+clog:Label("+teleports")
 clog:Seperator()
