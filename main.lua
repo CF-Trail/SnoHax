@@ -388,7 +388,7 @@ tp:Button("Castle",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(358.669861, 52.5, -166.420197, 0.141238213, -1.07628212e-10, 0.989975631, -4.46174729e-11, 1, 1.1508354e-10, -0.989975631, -6.04244016e-11, 0.141238)
 end)
 
-tp:Button("Mountain",function()
+tp:Button("Pyramid",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(244.01358, 30.0698872, -214.819855, -0.0125390803, -5.26687634e-12, 0.999921381, 2.5928245e-13, 1, 5.27054182e-12, -0.999921381, 3.253498e-13, -0.01253908)
 end)
 
