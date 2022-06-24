@@ -5,9 +5,10 @@ wins = win[math.random(1,#win)]
 _G.SpamSounds = true
 _G.US = true
 _G.lmao = true
+_G.Annoy = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.5?", "")
+local serv = win:Server("sno hax 1.5", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -16,6 +17,47 @@ local troll = serv:Channel("Troll")
 local tp = serv:Channel("Teleports")
 local gamep = serv:Channel("Game")
 local clog = serv:Channel("Changelog")
+
+troll:Textbox("Player to annoy","CAN'T be shortened",true,function(plr)
+    _G.Annoy = true
+    p = Instance.new("Part",workspace)
+    p.Name = "snowball"
+    while _G.Annoy == true do
+    if not _G.Annoy then break end
+    wait()
+    p = Instance.new("Part",workspace)
+    p.Name = "snowball"
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-50000000000000,10000000000000000,5000000000000)
+    wait(1)
+    local args = {
+        [1] = {
+            ["visual"] = workspace.snowball,
+            ["airshot"] = false,
+            ["active"] = false,
+            ["vel"] = Vector3.new(-10.851346969604492, 4.623229026794434, 2.3129332065582275),
+            ["Update"] = function()end --[[Update]],
+            ["startpos"] = Vector3.new(160.68650817871094, 27.411270141601562, -247.69456481933594),
+            ["hitdat"] = {
+                [1] = game:GetService("Players")[tostring(plr)].Character.Head,
+                [2] = Vector3.new(121.31280517578125, 47.99488067626953, -239.3021697998047),
+                [3] = Vector3.new(0.9414222240447998, -0.3303876519203186, 0.06758713722229004),
+                [4] = Enum.Material.Sand
+            },
+            ["CheckCol"] = function()end --[[CheckCol]],
+            ["FireSnow"] = function()end --[[FireSnow]],
+            ["pos"] = Vector3.new(121.77326202392578, 47.798702239990234, -239.4003143310547)
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Combat.Hit:FireServer(unpack(args))
+    end
+end)
+
+troll:Button("Stop annoying",function()
+_G.Annoy = false
+end)
+
+troll:Seperator()
 
 main:Button("Anti-AFK",function()
     for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
@@ -346,7 +388,7 @@ tp:Button("Castle",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(358.669861, 52.5, -166.420197, 0.141238213, -1.07628212e-10, 0.989975631, -4.46174729e-11, 1, 1.1508354e-10, -0.989975631, -6.04244016e-11, 0.141238)
 end)
 
-tp:Button("Pyramid",function()
+tp:Button("Mountain",function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(244.01358, 30.0698872, -214.819855, -0.0125390803, -5.26687634e-12, 0.999921381, 2.5928245e-13, 1, 5.27054182e-12, -0.999921381, 3.253498e-13, -0.01253908)
 end)
 
@@ -386,9 +428,10 @@ tp:Button("Grave",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129.454346, 12.5, -273.150146, 0.143596217, 5.00841812e-09, -0.989636362, -1.59446262e-10, 1, 5.03773157e-09, 0.989636362, -5.6560534e-10, 0.143596)
 end)
 
-clog:Label("1.5?")
+clog:Label("1.5")
 clog:Seperator()
 clog:Label("~bug fixes")
 clog:Label("~optimization")
 clog:Label("+teleports")
+clog:Label("+more trolling")
 clog:Seperator()
