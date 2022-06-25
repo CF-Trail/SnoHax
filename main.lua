@@ -1,4 +1,5 @@
 win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main","sno sno sno sno sno","sno bro","sno sis","hiiiiiiiiiiiiiiiiiii","yad ons"}
+sid = {"9881027138","10023462178","10023457783"}
 wins = win[math.random(1,#win)]
 
 
@@ -8,7 +9,7 @@ _G.lmao = true
 _G.Annoy = true
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 local win = DiscordLib:Window(tostring(wins))
-local serv = win:Server("sno hax 1.5.2", "")
+local serv = win:Server("sno hax 1.6", "")
 local main = serv:Channel("Main")
 local ex = serv:Channel("Expanders")
 local lp = serv:Channel("LocalPlayer")
@@ -438,20 +439,9 @@ tp:Button("Grave",function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129.454346, 12.5, -273.150146, 0.143596217, 5.00841812e-09, -0.989636362, -1.59446262e-10, 1, 5.03773157e-09, 0.989636362, -5.6560534e-10, 0.143596)
 end)
 
-clog:Label("1.5.2")
+clog:Label("1.6")
 clog:Seperator()
-clog:Label("play 1st or 2nd music in #game")
-clog:Seperator()
-clog:Label("1.5.1")
-clog:Seperator()
-clog:Label("Badge Teleporter")
-clog:Seperator()
-clog:Label("1.5")
-clog:Seperator()
-clog:Label("~bug fixes")
-clog:Label("~optimization")
-clog:Label("+teleports")
-clog:Label("+more trolling")
+clog:Label("custom music :D")
 clog:Seperator()
 
 gamep:Seperator()
@@ -464,4 +454,41 @@ end)
 gamep:Button("play 2nd song [FE]",function()
     workspace.songcycle:Stop()
     workspace["dont mind me!"]:Play()
+end)
+
+gamep:Seperator()
+gamep:Textbox("your own music","input id",true,function(cs)
+    if workspace:FindFirstChild("songcycle") then
+        workspace.songcycle:Destroy()
+        workspace["dont mind me!"]:Destroy()
+        end
+    gcustom = Instance.new("Sound",workspace)
+    gcustom.Name = "custom"
+    gcustom.Looped = true
+    gcustom.SoundId = "rbxassetid://"..tostring(cs)
+    gcustom:Play()
+    end)
+    gamep:Button("remove ur custom music",function()
+    workspace.custom:Destroy()
+end)
+gamep:Seperator()
+gamep:Button("my custom music",function()
+if workspace:FindFirstChild("songcycle") then
+workspace.songcycle:Destroy()
+workspace["dont mind me!"]:Destroy()
+end
+csound = Instance.new("Sound",workspace)
+csound.Name = "csong"
+csound.Looped = false
+mr = sid[math.random(1,#sid)]
+csound.SoundId = "rbxassetid://" .. mr
+csound:Play()
+csound.Ended:Connect(function()
+    mr = sid[math.random(1,#sid)]
+    csound.SoundId = "rbxassetid://" .. mr
+    csound:Play()
+end)
+end)
+gamep:Button("stop custom music",function()
+workspace.csong:Destroy()
 end)
