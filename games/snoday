@@ -1,7 +1,7 @@
 
 win = {"lol","sno hax","this is random generated text", "sno daying? sno day some bitches","go play rblxware","go play flood escape 2",".gg#1780","scriptblox.com/u/hiix","funny","word",":)",":(","new update never","nil","wtf is this text","what am i doing with my life","random texts update omg no way"," ","editing snohax/main.lua at main","sno sno sno sno sno","sno bro","sno sis","hiiiiiiiiiiiiiiiiiii","yad ons"}
 sid = {"9881027138","10023462178","10023457783"}
-wins = win[math.random(1,#win)]
+wins = win[math.random(1,#win)] .. " / sno hub - sno day"
 
 
 _G.SpamSounds = true
