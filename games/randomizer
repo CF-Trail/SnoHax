@@ -88,20 +88,20 @@ else
 end
 end)
 
-noclip = lp:CreateToggle("bad noclip",nil,function(clip)
+noclip = lp:CreateToggle("Noclip",nil,function(clip)
     if clip == true then
         getgenv().clip = true
     else
         getgenv().clip = false
     end
-    if getgenv().clip == true then
     game.Players.LocalPlayer.Character.Torso.Touched:Connect(function(e)
+    if getgenv().clip == true then
     e.CanCollide = false
     e.StoppedTouching:Connect(function(a)
        e.CanCollide = true
     end)
-    end)
 end
+    end)
 end)
 
 noclip:CreateKeybind("Z",function(clip)
