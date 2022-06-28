@@ -56,6 +56,7 @@ local random = Window:CreateTab("random things")
 local lp = localplayer:CreateSection("Movement")
 local tp = localplayer:CreateSection("Teleports")
 local r1s = random:CreateSection("random things")
+local r2s = random:CreateSection("random op things")
 
 --#lp
 
@@ -163,4 +164,22 @@ r1s:CreateButton("remove dumb esp",function()
     v.Transparency = 0
     end
     end
+end)
+
+r1s:CreateButton("sit",function()
+    game.Players.LocalPlayer.Character.Humanoid.Sit = true
+end)
+
+r2s:CreateButton("client bring all",function()
+asdfg = Instance.new("Part",workspace)
+asdfg.CFrame = CFrame.new(500,10,500)
+asdfg.Anchored = true
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(500,15,500)
+while wait() do
+for _,v in pairs(game.Workspace:GetDescendants()) do
+    if v:IsA("BasePart") and v.Name == "HumanoidRootPart" and v.Parent.Name ~= game.Players.LocalPlayer.Name and v.Anchored == false then
+       v.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,0,10))
+end
+end
+end
 end)
