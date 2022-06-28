@@ -95,17 +95,12 @@ noclip = lp:CreateToggle("bad noclip",nil,function(clip)
         getgenv().clip = false
     end
     if getgenv().clip == true then
-    for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-        if child:IsA("BasePart") and child.CanCollide == true then
-            child.CanCollide = false
-        end
-    end
-else
-    for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-        if child:IsA("BasePart") and child.CanCollide == false and child.Name ~= "Left Leg" and child.Name ~= "Right Leg" ~= "Right Arm" and child.Name ~= "Left Arm" then
-            child.CanCollide = true
-        end
-    end
+    game.Players.LocalPlayer.Character.Torso.Touched:Connect(function(e)
+    e.CanCollide = false
+    e.StoppedTouching:Connect(function(a)
+       e.CanCollide = true
+    end)
+    end)
 end
 end)
 
