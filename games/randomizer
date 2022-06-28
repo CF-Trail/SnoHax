@@ -1,3 +1,5 @@
+if not getgenv() or not getgenv then game.Players.LocalPlayer:Kick("your exploit does not support getgenv dumbass") end
+
 --#hooking w/newcclosure
 if newcclosure then
 local gmt = getrawmetatable(game)
