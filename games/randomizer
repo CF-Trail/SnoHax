@@ -1,0 +1,169 @@
+--#hooking w/newcclosure
+if newcclosure then
+local gmt = getrawmetatable(game)
+local oldIndex = gmt.__index
+setreadonly(gmt,false)
+
+gmt.__index = newcclosure(function(Self,Key)
+if tostring(Self) == "Humanoid" and tostring(Key) == "WalkSpeed" or tostring(Key) == "JumpPower" or tostring(Key) == "HipHeight"then
+    return
+end
+return oldIndex(Self,Key)
+end)
+--#hooking w/protect_function
+elseif protect_function then
+    local gmt = getrawmetatable(game)
+    local oldIndex = gmt.__index
+    setreadonly(gmt,false)
+
+    gmt.__index = protect(function(Self,Key)
+if tostring(Self) == "Humanoid" and tostring(Key) == "WalkSpeed" or tostring(Key) == "JumpPower" or tostring(Key) == "HipHeight" then
+return
+end
+return oldIndex(Self,Key)
+end)
+
+
+--#hooking w/synapse users (newcclosure)
+elseif protect_function and newcclosure then
+    local gmt = getrawmetatable(game)
+local oldIndex = gmt.__index
+setreadonly(gmt,false)
+
+gmt.__index = newcclosure(function(Self,Key)
+if tostring(Self) == "Humanoid" and tostring(Key) == "WalkSpeed" or tostring(Key) == "JumpPower" or tostring(Key) == "HipHeight" then
+    return
+end
+return oldIndex(Self,Key)
+end)
+end
+
+
+--#randomizer main
+local Config = {
+    WindowName = "sno hub - randomizer",
+	Color = Color3.fromRGB(255,128,64),
+	Keybind = Enum.KeyCode.RightBracket
+}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local localplayer = Window:CreateTab("LocalPlayer")
+local random = Window:CreateTab("random things")
+local lp = localplayer:CreateSection("Movement")
+local tp = localplayer:CreateSection("Teleports")
+local r1s = random:CreateSection("random things")
+
+--#lp
+
+flytoggle = lp:CreateToggle("Float Fly",nil,function(fly)
+    if fly == true then
+        getgenv().fly = true
+    else
+        getgenv().fly = false
+    end
+    if not workspace:FindFirstChild("sno") then
+    part = Instance.new("Part",game.Workspace)
+    part.Name = "sno"
+    while getgenv().fly do
+    wait()
+    if not getgenv().fly then workspace:WaitForChild("sno"):Destroy() end
+    if not getgenv().fly then break end
+    part.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,3.5,0))
+    part.Anchored = true
+    part.Transparency = 1
+    end
+else
+    while getgenv().fly do
+        wait()
+        if not getgenv().fly then workspace:WaitForChild("sno"):Destroy() end
+        if not getgenv().fly then break end
+        workspace.sno.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,3.5,0))
+        workspace.sno.Anchored = true
+        workspace.sno.Transparency = 1
+    end
+end
+end)
+
+noclip = lp:CreateToggle("bad noclip",nil,function(clip)
+    if clip == true then
+        getgenv().clip = true
+    else
+        getgenv().clip = false
+    end
+    if getgenv().clip == true then
+    for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+        if child:IsA("BasePart") and child.CanCollide == true then
+            child.CanCollide = false
+        end
+    end
+else
+    for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+        if child:IsA("BasePart") and child.CanCollide == false and child.Name ~= "Left Leg" and child.Name ~= "Right Leg" ~= "Right Arm" and child.Name ~= "Left Arm" then
+            child.CanCollide = true
+        end
+    end
+end
+end)
+
+noclip:CreateKeybind("Z",function(clip)
+end)
+
+flytoggle:CreateKeybind("X", function(fly)
+end)
+
+
+lp:CreateSlider("WalkSpeed",0,150,nil,true,function(ws)
+    WalkSpeedCheck = ws
+    while wait(.1) do
+    if WalkSpeedCheck ~= ws then break end
+    game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+    game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(ws)
+    end
+end)
+
+lp:CreateSlider("JumpPower",0,250,nil,true,function(jp)
+JumpPowerCheck = jp
+while wait(.1) do
+if JumpPowerCheck ~= jp then break end
+ game.Workspace:WaitForChild(game.Players.LocalPlayer.Name)
+ game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+ game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(jp)
+end
+end)
+
+--#tp
+
+tp:CreateButton("tp to ontop of invis wall",function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,150,0))
+end)
+
+tp:CreateButton("tp to secret",function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4691.62402, 20.9792633, 43.2530479, 0.898959339, 1.03586517e-08, 0.43803215, -4.89565117e-08, 1, 7.68237243e-08, -0.43803215, -9.05059281e-08, 0.898959339)
+end)
+
+tp:CreateTextBox("TP to player","Enter FULL nickname",false,function(plrtp)
+if plrtp == nil and not tostring(plrtp) == "nil" then
+    game.Players.LocalPlayer:Kick("error: nil at nickname; contact .gg#1780")
+end
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(workspace[tostring(plrtp)]:WaitForChild("HumanoidRootPart").Position)
+--game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').Position = game.Players:FindFirstChild(plrtp).Character:FindFirstChild('HumanoidRootPart').Position
+end)
+
+r1s:CreateButton("dumb esp lol",function()
+for i,v in pairs(game.Workspace:GetDescendants()) do
+if v:IsA("BasePart") and v.Parent:FindFirstChild("SpawnLocation") then
+v.Transparency = 0.5
+end
+end
+end)
+
+r1s:CreateButton("remove dumb esp",function()
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v:IsA("BasePart") and v.Parent:FindFirstChild("SpawnLocation") then
+    v.Transparency = 0
+    end
+    end
+end)
