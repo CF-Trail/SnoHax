@@ -1,4 +1,4 @@
-if not getgenv() or not getgenv then game.Players.LocalPlayer:Kick("your exploit does not support getgenv dumbass") end
+if not getgenv() or not getgenv then game.Players.LocalPlayer:Kick("bad exploit") end
 
 --#hooking w/newcclosure
 if newcclosure then
