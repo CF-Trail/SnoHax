@@ -1,0 +1,60 @@
+local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local win = DiscordLib:Window("RST yes")
+local serv = win:Server("sno hub", "")
+local main = serv:Channel("Main")
+local troll = serv:Channel("Troll")
+local cr = serv:Channel("Credits")
+
+troll:Button("Loop sounds",function()
+_G.sound = true
+while _G.sound do
+    wait()
+    if not _G.sound then break end
+    for i,v in next, workspace:GetDescendants() do
+        if v:IsA("Sound") then
+        v:Play()
+        end
+    end
+end
+end)
+troll:Button("unloop sounds",function()
+_G.sound = false
+end)
+
+main:Button("KillAura",function()
+    local client = game.Players.LocalPlayer
+
+    function closest(currentMagnitude)
+        local closestCurrent = nil
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v ~= game:GetService("Players").LocalPlayer then
+                if v.Character ~= nil then
+                    if v.Character:FindFirstChild('Humanoid') and v.Character:FindFirstChild('Humanoid').Health ~= 0 and v.Character:FindFirstChild('HumanoidRootPart') then
+                        if (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < currentMagnitude then
+                            currentMagnitude = (game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                            closestCurrent = v.Character
+                        end
+                    end
+                end
+            end
+        end
+        return closestCurrent
+    end
+    
+    
+    while wait() do
+            if client.Character:FindFirstChildWhichIsA('Tool') then
+                    local tool = client.Character:FindFirstChildWhichIsA('Tool') 
+                    if tool:FindFirstChild('Remote') then
+                            local remote = tool:FindFirstChild('Remote')
+                            local closest = closest(10)
+                            if closest then
+                                    remote:InvokeServer(closest)
+                            end
+                    end
+            end
+    end
+end)
+
+cr:Label("KillAura - snnwer#1349")
+cr:Label("everything else - .gg#1780")
